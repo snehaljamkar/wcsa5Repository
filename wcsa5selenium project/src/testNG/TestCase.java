@@ -2,11 +2,12 @@ package testNG;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 
-
+@Listeners(CustomeListener.class)
 public class TestCase extends BaseTest{
 
 	@Test
@@ -24,7 +25,7 @@ public class TestCase extends BaseTest{
 		sa.assertAll();
 		
 		String actualTitleOfHomePage = driver.getTitle();
-		Assert.assertEquals(driver.getTitle(),"snehal");
+		Assert.assertEquals(actualTitleOfHomePage,"snehal");
 		
 		Thread.sleep(2000);
 		driver.findElement(By.linkText("Logout")).click();
